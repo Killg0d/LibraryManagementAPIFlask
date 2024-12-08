@@ -28,9 +28,25 @@ def initialize_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
             token TEXT NOT NULL UNIQUE,
+            created_at INTEGER NOT NULL,  -- Track when the session was created
             FOREIGN KEY (user_id) REFERENCES users (id)
         )
     """)
+
+    # Create book table for Books
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS books (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        author TEXT NOT NULL,
+        isbn TEXT NOT NULL UNIQUE,
+        published_year INTEGER,
+        genre TEXT,
+        created_at INTEGER
+    )
+
+    """)
+
     
     conn.commit()
     conn.close()
