@@ -23,13 +23,13 @@ This project offers a basic API for managing books. It includes:
 1. Clone the repository:
 
 ```bash
-git clone <repo_url>
+git clone https://github.com/Killg0d/LibraryManagementAPIFlask.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd <repo_name>
+cd LibraryManagementAPIFlask
 ```
 
 3. Install dependencies:
