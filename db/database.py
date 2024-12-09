@@ -1,10 +1,10 @@
 import sqlite3
-
-DATABASE = 'library.db'
+from flask import current_app
 
 def get_db_connection():
     """Establish and return a database connection."""
-    conn = sqlite3.connect(DATABASE)
+    database_uri = current_app.config["DATABASE_URI"]
+    conn = sqlite3.connect(database_uri.split("///")[1])  # Extract file path from SQLite URI
     conn.row_factory = sqlite3.Row
     return conn
 
